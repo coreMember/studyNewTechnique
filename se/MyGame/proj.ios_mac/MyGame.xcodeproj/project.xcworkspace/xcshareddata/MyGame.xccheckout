@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DCD31E37-C29B-4F73-B0D5-93C3DEB4A22E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D2761FB4E713C277FD6016164453B6F1CBBB8C82</key>
+		<string>https://github.com/coreMember/studyNewTechnique</string>
+		<key>F1EC2769E0C5A1EF95642426B09A6FAB23C0FC6D</key>
+		<string>https://bitbucket.org/saeromm/calibur.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>se/MyGame/proj.ios_mac/MyGame.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D2761FB4E713C277FD6016164453B6F1CBBB8C82</key>
+		<string>../../../../..</string>
+		<key>F1EC2769E0C5A1EF95642426B09A6FAB23C0FC6D</key>
+		<string>../../../../../../calibur</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/coreMember/studyNewTechnique</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D2761FB4E713C277FD6016164453B6F1CBBB8C82</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F1EC2769E0C5A1EF95642426B09A6FAB23C0FC6D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>calibur</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D2761FB4E713C277FD6016164453B6F1CBBB8C82</string>
+			<key>IDESourceControlWCCName</key>
+			<string>studyNewTechnique</string>
+		</dict>
+	</array>
+</dict>
+</plist>
