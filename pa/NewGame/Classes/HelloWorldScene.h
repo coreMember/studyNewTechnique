@@ -23,6 +23,20 @@ struct PosIndex{
     int y;
 };
 
+class CardSprite : public cocos2d::Sprite{
+protected:
+    std::string getFileName(CardType cardType);
+    void showNumber();
+    
+public:
+    virtual bool init(); //初期化処理
+    void onEnter() override;
+    CREATE_FUNC(CardSprite);
+    
+    CC_SYNTHESIZE(Card, _card, Card);
+    CC_SYNTHESIZE(PosIndex, _posIndex, PosIndex);
+};
+
 class HelloWorld : public cocos2d::Layer
 {
 protected:
