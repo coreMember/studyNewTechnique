@@ -131,6 +131,9 @@ void GameLayer::onTouchEnded(Touch* touch, Event* unused_event)
     core->scheShoot();
     _movingCore->setPositionX(getPosFromTag(_movingCore->getTag()));
     this->schedule(schedule_selector(GameLayer::shootCheck), 0.1f);
+    
+    
+    attackFromEnemy();
 }
 
 void GameLayer::onTouchCancelled(Touch* touch, Event* unused_event)
@@ -370,6 +373,71 @@ void GameLayer::removeLevelLayer(float dt)
     levelLayer->runAction(Sequence::create(FadeTo::create(0.5, 0),
                                            RemoveSelf::create(),
                                            nullptr));
+}
+
+//敵からの攻撃
+void GameLayer::attackFromEnemy()
+{
+    if (!_enemyData->isAttackTurn())
+    {
+        //敵の攻撃ターンでない場合は、一連の攻撃の処理を終わらせる
+        endAnimation();
+        return;
+    }
+    
+    //メンバーを1人選択
+    int index;
+    Character* memberData;
+    
+    do {
+        //ランダムでメンバーを選択
+        index = _distForMember(_engine);
+        memberData = _memberDatum. at(index);
+        
+        //HPが0のメンバーを選択した場合は、再度選択し直す
+    } while (memberData->getHp() <= 0);
+    
+    auto member = _members.at(index);
+    auto hpBarForMember = _hpBarForMembers.at(index);
+    
+    //メンバーにダメージを与える
+    float preHpPercentage = memberData->getHpPercentage();
+    int afterHp = memberData->getHp() - 25;
+    if (afterHp > memberData->getMaxHp()) afterHp = memberData->getMaxHp();
+    memberData->setHp(afterHp);
+    
+    //メンバーヒットポイントバーのアニメーション
+    auto act = ProgressFromTo::create(0.5, preHpPercentage, memberData->getHpPercentage());
+    hpBarForMember->runAction(act);
+    
+    //メンバーの被ダメージアニメーション
+    member->runAction(vibratingAnimation(afterHp));
+    
+    //敵の攻撃アニメーション
+    auto seq = Sequence::create(MoveBy::create(0.1, Point(0, -10)),
+                                MoveBy::create(0.1, Point(0, 10)), nullptr);
+    _enemy->runAction(seq);
+    
+    //味方の全滅チェック
+    bool allHpZero = true;
+    
+    for (auto character : _memberDatum)
+    {
+        if (character->getHp() > 0)
+        {
+            allHpZero = false;
+            break;
+        }
+    }
+    
+    // アニメーション終了時処理
+    CallFunc* func;
+    if (allHpZero)
+        func = CallFunc::create(CC_CALLBACK_0(GameLayer::loseAnimation, this));
+    else
+        func = CallFunc::create(CC_CALLBACK_0(GameLayer::endAnimation, this));
+    
+    runAction(Sequence::create(DelayTime::create(0.5), func, nullptr));
 }
 
 //Winアニメーション
