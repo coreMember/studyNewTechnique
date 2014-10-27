@@ -13,6 +13,40 @@
 
 USING_NS_CC;
 
+bool CardSprite::init(){
+    if(!Sprite::init()){
+        return false;
+    }
+    return true;
+}
+
+void CardSprite::onEnter(){
+    Sprite::onEnter();
+}
+
+std::string CardSprite::getFileName(CardType cardType){
+    std::string filename;
+    switch (cardType) {
+        case Clubs:
+            filename = "card_clubs.png";
+            break;
+        case Diamonds:
+            filename = "card_diamonds.png";
+            break;
+        case Hearts:
+            filename = "card_hearts.png";
+            break;
+        default:
+            filename = "card_spades.png";
+            break;
+    }
+    return filename;
+}
+
+void CardSprite::showNumber(){
+    
+}
+
 Scene* HelloWorld::createScene()
 {
     //シーンを生成する
