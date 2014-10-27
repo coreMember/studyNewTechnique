@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/cocos/base/CCDataVisitor.cpp \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/CCRef.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/CCPlatformMacros.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/ccConfig.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/CCPlatformConfig.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/platform/ios/CCPlatformDefine.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCBool.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/CCDataVisitor.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCInteger.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/CCConsole.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/ccMacros.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/platform/ios/CCStdC.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/platform/CCCommon.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCFloat.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCDouble.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCString.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCArray.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/ccCArray.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCDictionary.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/base/uthash.h \
+  /Users/park/Documents/projectStation/NewGame/cocos2d/build/../cocos/deprecated/CCSet.h
