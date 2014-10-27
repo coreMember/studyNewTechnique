@@ -73,6 +73,7 @@ protected:
     void winAnimation(); //Winアニメーション
     void loseAnimation(); //Loseアニメーション
     void nextScene(float dt); //次のシーンへ遷移
+    void attackFromEnemy();
     
 public:
     float vx;
