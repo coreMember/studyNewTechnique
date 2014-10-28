@@ -20,7 +20,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		3984811619F6973200B32723 /* WeaponSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3984811419F6973200B32723 /* WeaponSprite.cpp */; };
 		3984811919FBD07300B32723 /* darkstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3984811819FBD07300B32723 /* darkstar.png */; };
 		39E4CA9919EA73D10074DEF8 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E4CA6F19EA73D10074DEF8 /* 0.png */; };
 		39E4CA9A19EA73D10074DEF8 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E4CA7019EA73D10074DEF8 /* 1.png */; };
@@ -260,8 +259,6 @@
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3984811419F6973200B32723 /* WeaponSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WeaponSprite.cpp; path = ../Classes/WeaponSprite.cpp; sourceTree = "<group>"; };
-		3984811519F6973200B32723 /* WeaponSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeaponSprite.h; path = ../Classes/WeaponSprite.h; sourceTree = "<group>"; };
 		3984811819FBD07300B32723 /* darkstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkstar.png; sourceTree = "<group>"; };
 		39E4CA6F19EA73D10074DEF8 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		39E4CA7019EA73D10074DEF8 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -433,8 +430,6 @@
 				39E4E5CE19EA82300074DEF8 /* CursorSprite.h */,
 				39E4E5CF19EA82300074DEF8 /* GameLayer.cpp */,
 				39E4E5D019EA82300074DEF8 /* GameLayer.h */,
-				3984811419F6973200B32723 /* WeaponSprite.cpp */,
-				3984811519F6973200B32723 /* WeaponSprite.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -842,7 +837,6 @@
 				39E4E5D119EA82300074DEF8 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				39E4E5D319EA82300074DEF8 /* Character.cpp in Sources */,
-				3984811619F6973200B32723 /* WeaponSprite.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				39E4E5D619EA82300074DEF8 /* GameLayer.cpp in Sources */,
 				39E4E5D419EA82300074DEF8 /* CoreSprite.cpp in Sources */,

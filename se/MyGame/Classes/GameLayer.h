@@ -52,7 +52,7 @@ protected:
     cocos2d::Sprite* _enemy; //敵画像
     cocos2d::ProgressTimer* _hpBarForEnemy; //敵のヒットポイントバー
     
-    cocos2d::Vector<Character*> _memberDatum; //メンバーの情報
+    cocos2d::Vector<Character*> _membersData; //メンバーの情報
     cocos2d::Vector<cocos2d::Sprite*> _members; //メンバー画像
     cocos2d::Vector<cocos2d::ProgressTimer*> _hpBarForMembers; //メンバーのヒットポイントバー
 
@@ -73,7 +73,7 @@ protected:
     void winAnimation(); //Winアニメーション
     void loseAnimation(); //Loseアニメーション
     void nextScene(float dt); //次のシーンへ遷移
-    void attackFromEnemy();
+    void attackFromEnemy(float f);
     
 public:
     float vx;

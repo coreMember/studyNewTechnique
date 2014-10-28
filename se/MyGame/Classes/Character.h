@@ -31,10 +31,6 @@ public:
     
     float getHpPercentage(); //ヒットポイント（％値）取得
     bool isAttackTurn(); //攻撃ターン（敵の場合）チェック
-    static int getDamage(int ballCount, int chainCount, Character* attacker, Character* defender); //ダメージ数取得
-    
-protected:
-    static float getElementBonus(Element attackElement, Element defenseElement); //属性による攻撃ボーナス
 };
 
 #endif /* defined(__PuzzleGame__Character__) */

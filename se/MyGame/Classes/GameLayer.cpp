@@ -65,6 +65,8 @@ bool GameLayer::init(int level)
     initCursor();
     initLevelLayer(); //レベル表示レイヤーの表示
     
+    this->schedule(schedule_selector(GameLayer::attackFromEnemy), 0.5f);
+    
     return true;
 }
 
@@ -131,9 +133,6 @@ void GameLayer::onTouchEnded(Touch* touch, Event* unused_event)
     core->scheShoot();
     _movingCore->setPositionX(getPosFromTag(_movingCore->getTag()));
     this->schedule(schedule_selector(GameLayer::shootCheck), 0.1f);
-    
-    
-    attackFromEnemy();
 }
 
 void GameLayer::onTouchCancelled(Touch* touch, Event* unused_event)
@@ -143,7 +142,7 @@ void GameLayer::onTouchCancelled(Touch* touch, Event* unused_event)
 
 void GameLayer::shootCheck(float f)
 {
-    log("ttt %f %f %f", f, vx, vy);
+    if(core == nullptr) return;
     
     if(core->getBoundingBox().intersectsRect(_enemy->getBoundingBox()))
     {
@@ -258,7 +257,7 @@ void GameLayer::initMembers()
         memberData->setMaxHp(200);
         memberData->setHp(200);
         memberData->setElement(elements[i]);
-        _memberDatum.pushBack(memberData);
+        _membersData.pushBack(memberData);
         
         //メンバーの表示
         auto member = Sprite::create(fileNames[i].c_str());
@@ -376,7 +375,7 @@ void GameLayer::removeLevelLayer(float dt)
 }
 
 //敵からの攻撃
-void GameLayer::attackFromEnemy()
+void GameLayer::attackFromEnemy(float f)
 {
     if (!_enemyData->isAttackTurn())
     {
@@ -392,7 +391,7 @@ void GameLayer::attackFromEnemy()
     do {
         //ランダムでメンバーを選択
         index = _distForMember(_engine);
-        memberData = _memberDatum. at(index);
+        memberData = _membersData.at(index);
         
         //HPが0のメンバーを選択した場合は、再度選択し直す
     } while (memberData->getHp() <= 0);
@@ -421,7 +420,7 @@ void GameLayer::attackFromEnemy()
     //味方の全滅チェック
     bool allHpZero = true;
     
-    for (auto character : _memberDatum)
+    for (auto character : _membersData)
     {
         if (character->getHp() > 0)
         {
