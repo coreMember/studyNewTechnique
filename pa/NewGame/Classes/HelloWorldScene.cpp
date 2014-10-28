@@ -31,6 +31,7 @@ void CardSprite::onEnter(){
     float posY = CARD_1_POS_Y + CARD_DISTANCE_Y * _posIndex.y;
     setPosition(posX, posY);
     setTag(_posIndex.x + _posIndex.y * 5 + 1);
+
 }
 
 std::string CardSprite::getFileName(CardType cardType){
@@ -90,7 +91,6 @@ void CardSprite::showNumber(){
     number->setPosition(Point(getContentSize() / 2));
     number->setTextColor(textColor);
     addChild(number);
-    
 }
 
 Scene* HelloWorld::createScene()
