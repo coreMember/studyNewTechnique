@@ -7,7 +7,7 @@ class Character : public cocos2d::Ref
 {
 public:
     //キャラクター属性
-    enum class Element
+    enum class Type
     {
         Fire, //火
         Water, //水
@@ -22,7 +22,7 @@ protected:
     CC_SYNTHESIZE(int, _hp, Hp); //ヒットポイント
     CC_SYNTHESIZE(int, _maxHp, MaxHp); //最大ヒットポイント
     CC_SYNTHESIZE(int, _attack, Attack); //攻撃力
-    CC_SYNTHESIZE(Element, _element, Element); //属性
+    CC_SYNTHESIZE(Type, _type, Type); //属性
     CC_PROPERTY(int, _turnCount, TurnCount); //攻撃ターン数（敵の場合）
     
 public:

@@ -94,9 +94,8 @@ bool GameLayer::onTouchBegan(Touch* touch, Event* unused_event)
     
 	_movingCore = getTouchCore(touch->getLocation());
 
-	if(_movingCore)
+    if(_movingCore && _movingCore->_timerPhase == CoreSprite::TimerPhase::Ready)
     {
-        //this->unschedule(schedule_selector(GameLayer::shootCursor));
         _cursor->setPosition(Point(getPosFromTag(_movingCore->getTag()), 20));
         _cursor->setVisible(false);
 		return true;
@@ -117,22 +116,25 @@ void GameLayer::onTouchMoved(Touch* touch, Event* unused_event)
 
 void GameLayer::onTouchEnded(Touch* touch, Event* unused_event)
 {
+    coreAnimation(_movingCore, CoreSprite::TimerPhase::Cooling);
+    
     float angle = (_movingCore->getPositionX() - getPosFromTag(0)) / (getPosFromTag(4) - getPosFromTag(0)) * 180 - 90;
     float speed = 20;
     
     vx = sin(angle * M_PI / 180) * speed;
     vy = cos(angle * M_PI / 180) * speed;
 
-    core = (CoreSprite *) Sprite::create("darkstar.png");
-    core->setPosition(Point(getPosFromTag(_movingCore->getTag()), 40));
+    auto bullet = (BulletSprite *) Sprite::create("darkstar.png");
+    bullet->setPosition(Point(getPosFromTag(_movingCore->getTag()), 40));
     
-    log("fff %f %f", vx, vy);
-    addChild(core, ZOrder::Core);
-    core->coreVx = vx;
-    core->coreVy = vy;
-    core->scheShoot();
+    addChild(bullet, ZOrder::Core);
+    bullet->bulletVx = vx;
+    bullet->bulletVy = vy;
+    bullet->scheShoot();
     _movingCore->setPositionX(getPosFromTag(_movingCore->getTag()));
     this->schedule(schedule_selector(GameLayer::shootCheck), 0.1f);
+    
+    _bullets.pushBack(bullet);
 }
 
 void GameLayer::onTouchCancelled(Touch* touch, Event* unused_event)
@@ -142,31 +144,46 @@ void GameLayer::onTouchCancelled(Touch* touch, Event* unused_event)
 
 void GameLayer::shootCheck(float f)
 {
-    if(core == nullptr) return;
-    
-    if(core->getBoundingBox().intersectsRect(_enemy->getBoundingBox()))
+    for(auto bullet : _bullets)
     {
-        int damage = 500;
-        // 敵のHPを取得する
-        float preHpPercentage = _enemyData->getHpPercentage();
-        
-        //ダメージをセットする
-        int afterHp = _enemyData->getHp() - damage;
-        if (afterHp < 0) afterHp = 0;
-        _enemyData->setHp (afterHp);
-        
-        //敵ヒットポイントバーのアニメーション
-        auto act = ProgressFromTo::create(0.5, preHpPercentage, _enemyData->getHpPercentage());
-        _hpBarForEnemy->runAction(act);
-        
-        //敵の被ダメージアニメーション
-        _enemy->runAction(vibratingAnimation(afterHp));
-        
-        if(_enemyData->getHp() <= 0)
+        // ダメージ判定
+        if(bullet->getBoundingBox().intersectsRect(_enemy->getBoundingBox()))
         {
-            winAnimation();
+            attacktoEnemy(100);
+        }
+        
+        // out of range
+        if(bullet->getPositionX() > WINSIZE.width || bullet->getPositionX() < 0 ||
+           bullet->getPositionY() > WINSIZE.height || bullet->getPositionY() < 0)
+        {
+            _bullets.erase(_bullets.getIndex(bullet));
+            this->removeChild(bullet);
         }
     }
+}
+
+void GameLayer::attacktoEnemy(int dmg)
+{
+    // 敵のHPを取得する
+    float preHpPercentage = _enemyData->getHpPercentage();
+    
+    //ダメージをセットする
+    int afterHp = _enemyData->getHp() - dmg;
+    if (afterHp < 0) afterHp = 0;
+    _enemyData->setHp (afterHp);
+    
+    //敵ヒットポイントバーのアニメーション
+    auto act = ProgressFromTo::create(0.5, preHpPercentage, _enemyData->getHpPercentage());
+    _hpBarForEnemy->runAction(act);
+    
+    //敵の被ダメージアニメーション
+    _enemy->runAction(vibratingAnimation(afterHp));
+    
+    if(_enemyData->getHp() <= 0)
+    {
+        winAnimation();
+    }
+    
 }
 
 CoreSprite* GameLayer::getTouchCore(Point touchPos)
@@ -198,7 +215,7 @@ void GameLayer::initEnemy()
     _enemyData->retain();
     _enemyData->setMaxHp(10000 * _level);
     _enemyData->setHp(10000 * _level);
-    _enemyData->setElement(Character::Element::Wind);
+    _enemyData->setType(Character::Type::Wind);
     _enemyData->setTurnCount(3);
     
     //敵の表示
@@ -241,13 +258,13 @@ void GameLayer::initMembers()
         "CorePurple.png"
     };
 
-    std::vector<Character::Element> elements
+    std::vector<Character::Type> types
     {
-        Character::Element::Water,
-        Character::Element::Fire,
-        Character::Element::Wind,
-        Character::Element::Holy,
-        Character::Element::Shadow,
+        Character::Type::Water,
+        Character::Type::Fire,
+        Character::Type::Wind,
+        Character::Type::Holy,
+        Character::Type::Shadow,
     };
     
     for (int i = 0; i < fileNames.size(); i++)
@@ -256,7 +273,7 @@ void GameLayer::initMembers()
         auto memberData = Character::create();
         memberData->setMaxHp(200);
         memberData->setHp(200);
-        memberData->setElement(elements[i]);
+        memberData->setType(types[i]);
         _membersData.pushBack(memberData);
         
         //メンバーの表示
@@ -265,11 +282,20 @@ void GameLayer::initMembers()
         addChild(member, ZOrder::Char);
         
         //コアの表示
-        auto core = Sprite::create(coreFileNames[i].c_str());
+        auto core = (CoreSprite*)Sprite::create(coreFileNames[i].c_str());
         core->setPosition(Point(getPosFromTag(i), 50));
         core->setTag(i);
         addChild(core, ZOrder::Core);
-
+        
+        //コアタイマーの表示
+        core->timer = ProgressTimer::create(Sprite::create(coreFileNames[i].c_str()));
+        core->timer->setType(ProgressTimer::Type::RADIAL);
+        core->timer->setPosition(Point(getPosFromTag(i), 50));
+        addChild(core->timer, ZOrder::CoreTimer);
+        
+        //コアタイマー起動
+        coreAnimation(core, CoreSprite::TimerPhase::Cooling);
+        
         //メンバーヒットポイントバー枠の表示
         auto hpBg = Sprite::create("HpCardBackground.png");
         hpBg->setPosition(Point(getPosFromTag(i), 20));
@@ -437,6 +463,41 @@ void GameLayer::attackFromEnemy(float f)
         func = CallFunc::create(CC_CALLBACK_0(GameLayer::endAnimation, this));
     
     runAction(Sequence::create(DelayTime::create(0.5), func, nullptr));
+}
+
+//コアの点滅をOn、Off、dead
+void GameLayer::coreAnimation(CoreSprite* core, int phase)
+{
+    core->_timerPhase = phase;
+
+    switch (phase) {
+        case CoreSprite::TimerPhase::Cooling :
+        {
+            core->runAction(TintTo::create(0, 100, 100, 100));
+            core->timer->setVisible(true);
+            
+            auto timerAnim = ProgressFromTo::create(10.0f, 0.0f, 100.0f);
+            auto callFunc = CallFunc::create([this, core](){
+                coreAnimation(core, CoreSprite::TimerPhase::Ready);
+            });
+            auto seq = Sequence::create(timerAnim, callFunc, NULL);
+            core->timer->runAction(seq);
+            break;
+        }
+        case CoreSprite::TimerPhase::Ready :
+        {
+            core->runAction(TintTo::create(0, 255, 255, 255));
+            core->timer->setVisible(false);
+            break;
+        }
+        case CoreSprite::TimerPhase::Dead :
+        {
+            core->runAction(TintTo::create(0, 0, 0, 0));
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 //Winアニメーション

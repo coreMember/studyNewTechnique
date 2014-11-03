@@ -7,7 +7,7 @@ Character::Character()
 : _hp(0)
 , _maxHp(0)
 , _attack(0)
-, _element(Element::None)
+, _type(Type::None)
 , _turnCount(0)
 , _remainingTurn(0)
 {

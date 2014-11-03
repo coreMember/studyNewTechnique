@@ -7,13 +7,11 @@
 
 #include "CoreSprite.h"
 
-void CoreSprite::scheShoot()
+CoreSprite::CoreSprite()
+: _timerPhase(CoreSprite::TimerPhase::Cooling)
 {
-    schedule(schedule_selector(CoreSprite::shoot));
 }
 
-void CoreSprite::shoot(float f)
+CoreSprite::~CoreSprite()
 {
-    setPosition(getPositionX() + coreVx, getPositionY() + coreVy);
-    setRotation(getRotation() + 5);
 }

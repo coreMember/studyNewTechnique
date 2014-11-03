@@ -20,6 +20,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		3973F7501A013B5B0008A08A /* BulletSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3973F74E1A013B5B0008A08A /* BulletSprite.cpp */; };
 		3984811919FBD07300B32723 /* darkstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3984811819FBD07300B32723 /* darkstar.png */; };
 		39E4CA9919EA73D10074DEF8 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E4CA6F19EA73D10074DEF8 /* 0.png */; };
 		39E4CA9A19EA73D10074DEF8 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E4CA7019EA73D10074DEF8 /* 1.png */; };
@@ -259,6 +260,8 @@
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3973F74E1A013B5B0008A08A /* BulletSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletSprite.cpp; path = ../Classes/BulletSprite.cpp; sourceTree = "<group>"; };
+		3973F74F1A013B5B0008A08A /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletSprite.h; path = ../Classes/BulletSprite.h; sourceTree = "<group>"; };
 		3984811819FBD07300B32723 /* darkstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkstar.png; sourceTree = "<group>"; };
 		39E4CA6F19EA73D10074DEF8 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		39E4CA7019EA73D10074DEF8 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				39E4E5CE19EA82300074DEF8 /* CursorSprite.h */,
 				39E4E5CF19EA82300074DEF8 /* GameLayer.cpp */,
 				39E4E5D019EA82300074DEF8 /* GameLayer.h */,
+				3973F74E1A013B5B0008A08A /* BulletSprite.cpp */,
+				3973F74F1A013B5B0008A08A /* BulletSprite.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -841,6 +846,7 @@
 				39E4E5D619EA82300074DEF8 /* GameLayer.cpp in Sources */,
 				39E4E5D419EA82300074DEF8 /* CoreSprite.cpp in Sources */,
 				39E4E5D519EA82300074DEF8 /* CursorSprite.cpp in Sources */,
+				3973F7501A013B5B0008A08A /* BulletSprite.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
