@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include <random>
 #include "BallSprite.h"
+#include "BulletSprite.h"
 #include "CoreSprite.h"
 #include "CursorSprite.h"
 #include "Character.h"
@@ -11,13 +12,6 @@
 class GameLayer : public cocos2d::Layer
 {
 protected:
-    //ボールチェック方向
-    enum class Direction
-    {
-        x,
-        y,
-    };
-    
     //Zオーダー
     enum ZOrder
     {
@@ -27,6 +21,7 @@ protected:
         EnemyHp,
         Char,
         Core,
+        CoreTimer,
         CharHp,
         Ball,
         Cursor,
@@ -55,6 +50,7 @@ protected:
     cocos2d::Vector<Character*> _membersData; //メンバーの情報
     cocos2d::Vector<cocos2d::Sprite*> _members; //メンバー画像
     cocos2d::Vector<cocos2d::ProgressTimer*> _hpBarForMembers; //メンバーのヒットポイントバー
+    cocos2d::Vector<cocos2d::Sprite*> _bullets; //たんまく画像
 
     int getPosFromTag(int tag);
     int _level; //現在のレベル
@@ -66,19 +62,20 @@ protected:
     void initMembers(); //メンバーの表示
     void initCursor();
     void endAnimation(); //アニメーション終了時処理
+    void attacktoEnemy(int dmg);
     cocos2d::Spawn* vibratingAnimation(int afterHp); //振動アニメーション
     
     void initLevelLayer(); //レベル表示レイヤーの表示
     void removeLevelLayer(float dt); //レベル表示レイヤーの削除
+    void coreAnimation(CoreSprite* targetCore, int type);
     void winAnimation(); //Winアニメーション
     void loseAnimation(); //Loseアニメーション
     void nextScene(float dt); //次のシーンへ遷移
     void attackFromEnemy(float f);
-    
+        
 public:
     float vx;
     float vy;
-    CoreSprite * core;
     
     GameLayer(); //コンストラクタ
     virtual bool init(int level); //初期化

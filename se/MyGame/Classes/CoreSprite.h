@@ -15,8 +15,8 @@
 class CoreSprite: public cocos2d::Sprite {
     
 public:
-
-	enum class CoreType
+    
+	enum class Type
 	{
 		Blue, //青
 		Red, //赤
@@ -24,6 +24,13 @@ public:
 		Yellow, //黄
 		Purple //紫
 	};
+    
+    enum TimerPhase
+    {
+        Cooling = 0,
+        Ready,
+        Dead
+    };
 
 	//位置インデックス
 	struct PositionIndex
@@ -42,11 +49,17 @@ public:
 
 		int x; //x方向のインデックス
 	};
+
+    CC_SYNTHESIZE(Type, _type, Type);
+    //CC_SYNTHESIZE(TimerPhase, _timerPhase, TimerPhase);
     
-    float coreVx;
-    float coreVy;
-    void scheShoot();
-    void shoot(float f);
+    
+    cocos2d::ProgressTimer * timer;
+    int _timerPhase;
+    std::string getCoreImageFilePath(Type type);
+    
+    CoreSprite();
+    virtual ~CoreSprite();
 };
 
 #endif /* CORESPRITE_H_ */

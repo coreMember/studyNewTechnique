@@ -21,10 +21,9 @@ bool AppDelegate::applicationDidFinishLaunching()
         director->setOpenGLView(glview);
     }
 
-    director->setDisplayStats(true);
+    //director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
 
-    // �뵽�깗�걣�뵽�씊�겗亮끹겓�깢�궍�긿�깉�걲�굥�굠�걝�겓�뵽�깗�굮鴉며리�걬�걵�굥
     glview->setDesignResolutionSize(640, 1136, ResolutionPolicy::FIXED_WIDTH);
     
     auto scene = GameLayer::createScene();
