@@ -49,6 +49,7 @@ protected:
     
     cocos2d::Vector<Character*> _membersData; //メンバーの情報
     cocos2d::Vector<cocos2d::Sprite*> _members; //メンバー画像
+    cocos2d::Vector<CoreSprite*> _cores;
     cocos2d::Vector<cocos2d::ProgressTimer*> _hpBarForMembers; //メンバーのヒットポイントバー
     cocos2d::Vector<cocos2d::Sprite*> _bullets; //たんまく画像
 

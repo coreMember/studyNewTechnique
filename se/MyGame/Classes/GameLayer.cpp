@@ -105,6 +105,9 @@ bool GameLayer::onTouchBegan(Touch* touch, Event* unused_event)
 
 void GameLayer::onTouchMoved(Touch* touch, Event* unused_event)
 {
+    if(_movingCore->_timerPhase == CoreSprite::Dead)
+        return;
+    
     _cursor->setVisible(true);
     
     //スワイプとともにボールを移動する
@@ -116,6 +119,9 @@ void GameLayer::onTouchMoved(Touch* touch, Event* unused_event)
 
 void GameLayer::onTouchEnded(Touch* touch, Event* unused_event)
 {
+    if(_movingCore->_timerPhase == CoreSprite::Dead)
+        return;
+    
     coreAnimation(_movingCore, CoreSprite::TimerPhase::Cooling);
     
     float angle = (_movingCore->getPositionX() - getPosFromTag(0)) / (getPosFromTag(4) - getPosFromTag(0)) * 180 - 90;
@@ -292,6 +298,7 @@ void GameLayer::initMembers()
         core->timer->setType(ProgressTimer::Type::RADIAL);
         core->timer->setPosition(Point(getPosFromTag(i), 50));
         addChild(core->timer, ZOrder::CoreTimer);
+        _cores.pushBack(core);
         
         //コアタイマー起動
         coreAnimation(core, CoreSprite::TimerPhase::Cooling);
@@ -443,6 +450,13 @@ void GameLayer::attackFromEnemy(float f)
                                 MoveBy::create(0.1, Point(0, 10)), nullptr);
     _enemy->runAction(seq);
     
+    //キャラクター死亡チェック
+    if(afterHp <= 0)
+    {
+        auto memberCore = _cores.at(index);
+        coreAnimation(memberCore, CoreSprite::TimerPhase::Dead);
+    }
+    
     //味方の全滅チェック
     bool allHpZero = true;
     
@@ -492,7 +506,9 @@ void GameLayer::coreAnimation(CoreSprite* core, int phase)
         }
         case CoreSprite::TimerPhase::Dead :
         {
-            core->runAction(TintTo::create(0, 0, 0, 0));
+            log("Dead");
+            core->timer->setVisible(false);
+            core->setVisible(false);
             break;
         }
         default:
