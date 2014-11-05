@@ -10,6 +10,7 @@
 #define CARD_DISTANCE_Y 200
 
 #define ZORDER_SHOW_CARD 1
+#define ZORDER_MOVING_CARD 2
 
 USING_NS_CC;
 
@@ -17,6 +18,7 @@ bool CardSprite::init(){
     if(!Sprite::init()){
         return false;
     }
+    
     return true;
 }
 
@@ -25,6 +27,9 @@ void CardSprite::onEnter(){
     
     //画像の表示
     setTexture(getFileName(_card.type));
+    
+    //マークと数字の表示
+    showNumber();
     
     //カードの位置とタブを指定
     float posX = CARD_1_POS_X + CARD_DISTANCE_X * _posIndex.x;
@@ -192,10 +197,63 @@ void HelloWorld::initGame(){
     showInitCards();
 }
 
+CardSprite* HelloWorld::getTouchCard(Touch *touch){
+    for (int tag = 1; tag <= 10; tag++) {
+        //表示されているカードを取得する
+        auto card = (CardSprite*)getChildByTag(tag);
+        if (card && card->getBoundingBox().containsPoint(touch->getLocation())) {
+            return card;
+        }
+    }
+    return nullptr;
+}
+
+bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event){
+    //タップされたカードを取得する
+    _firstCard = getTouchCard(touch);
+    if(_firstCard){
+        //前に出ているカードがタップされた場合
+        
+        //Zオーダーを変更する
+        _firstCard->setLocalZOrder(ZORDER_MOVING_CARD);
+        return true;
+    }
+    return false;
+    
+}
+
+void HelloWorld::onTouchMoved(Touch *touch, Event *unused_event){
+    //スワイプしているカードの位置を変更
+    _firstCard->setPosition(_firstCard->getPosition() + touch->getDelta());
+    
+}
+
+void HelloWorld::onTouchEnded(Touch *touch, Event *unused_event){
+    //タップしているカードの指定を外す
+    _firstCard = nullptr;
+}
+
+void HelloWorld::onTouchCancelled(Touch *touch, Event *unused_event){
+    //タップ終了と同じ処理を行う
+    onTouchEnded(touch, unused_event);
+}
+
 bool HelloWorld::init(){
     if (!Layer::init()) {
         return false;
     }
+    //シングルタップイベント取得
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(_swallowsTouches);
+    
+    //イベント関数の割り当て
+    listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+    listener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+    listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+    listener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+    
+    //イベントを追加する
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
     //ゲームを初期化する
     initGame();

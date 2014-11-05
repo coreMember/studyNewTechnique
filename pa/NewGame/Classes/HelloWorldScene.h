@@ -42,6 +42,8 @@ class HelloWorld : public cocos2d::Layer
 protected:
     //カード情報
     std::vector<Card> _cards;
+    //最初にタップされたカード
+    CardSprite* _firstCard;
     
     //カードを初期化する
     void initCards();
@@ -58,6 +60,9 @@ protected:
     //ゲームを初期化する
     void initGame();
     
+    //タップされたカードを取得
+    CardSprite* getTouchCard(cocos2d::Touch *touch);
+    
 public:
     //HelloWorldクラスのシーンを作成する
     static cocos2d::Scene* createScene();
@@ -67,6 +72,12 @@ public:
     
     //create関数作成マクロ
     CREATE_FUNC(HelloWorld);
+    
+    //タップイベント
+    virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
+    virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
