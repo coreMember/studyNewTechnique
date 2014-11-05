@@ -68,7 +68,7 @@ protected:
     
     void initLevelLayer(); //レベル表示レイヤーの表示
     void removeLevelLayer(float dt); //レベル表示レイヤーの削除
-    void coreAnimation(CoreSprite* targetCore, int type);
+    void coreAnimation(CoreSprite* targetCore, int type, float coolTime = 0);
     void winAnimation(); //Winアニメーション
     void loseAnimation(); //Loseアニメーション
     void nextScene(float dt); //次のシーンへ遷移

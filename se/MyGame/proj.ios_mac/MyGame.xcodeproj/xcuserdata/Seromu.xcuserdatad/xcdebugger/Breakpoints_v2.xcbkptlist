@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameLayer.cpp"
-            timestampString = "436800771.721272"
+            timestampString = "436892522.800761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "GameLayer::initMembers()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameLayer.cpp"
-            timestampString = "436800771.721272"
+            timestampString = "436892522.800761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
-            landmarkName = "GameLayer::coreAnimation(CoreSprite* core, int phase)"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
+            landmarkName = "GameLayer::attackFromEnemy(float f)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameLayer.cpp"
-            timestampString = "436800771.721272"
+            timestampString = "436892522.800761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "457"
-            endingLineNumber = "457"
+            startingLineNumber = "509"
+            endingLineNumber = "509"
             landmarkName = "GameLayer::attackFromEnemy(float f)"
             landmarkType = "5">
          </BreakpointContent>

@@ -2,6 +2,7 @@
 #define __PuzzleGame__Character__
 
 #include "cocos2d.h"
+#include "CoreSprite.h"
 
 class Character : public cocos2d::Ref
 {
@@ -30,7 +31,8 @@ public:
     static Character* create(); //インスタンス生成
     
     float getHpPercentage(); //ヒットポイント（％値）取得
-    bool isAttackTurn(); //攻撃ターン（敵の場合）チェック
+    float coolTime;
+    CoreSprite* core;
 };
 
 #endif /* defined(__PuzzleGame__Character__) */
