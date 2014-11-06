@@ -40,19 +40,3 @@ float Character::getHpPercentage()
 {
     return _hp * 100.f / _maxHp;
 }
-
-//攻撃ターン（敵の場合）チェック
-bool Character::isAttackTurn()
-{
-    // 残りターンの計算
-    _remainingTurn--;
-    
-    if (_remainingTurn <= 0)
-    {
-        // 残りターン数が0の場合、攻撃を行う
-        _remainingTurn = _turnCount;
-        return true;
-    }
-    
-    return false;
-}
