@@ -1,6 +1,7 @@
 #include "GameScene.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 Scene* GameScene::createScene()
 {
@@ -24,12 +25,21 @@ bool GameScene::init()
     {
         return false;
     }
-    
+    showButton();
     makeBlock();
     schedule(schedule_selector(GameScene::updateBlock), 1.0f);
-    setTimer();
-    newBlock();
+    
     return true;
+}
+
+void GameScene::showButton(){
+    auto button = ControlButton::create(Scale9Sprite::create("CloseNormal.png"));
+    button->setAdjustBackgroundImage(false);
+    button->setPosition(200, 300);
+    
+    button->addTargetWithActionForControlEvents(this, cccontrol_selector(GameScene::onTouchLeftMove), Control::EventType::TOUCH_UP_INSIDE);
+    
+    addChild(button);
 }
 
 void GameScene::makeBlock()
@@ -50,23 +60,58 @@ void GameScene::makeBlock()
             sprite->setVisible(false);
             spriteArray[i][j] = sprite;
             this->addChild(spriteArray[i][j], 0);
+            
+            completeTetromino[i][j] = 0;
         }
     }
+    
+    movingBlockX = startBlockX;
+    movingBlockY = startBlockY;
 }
 void GameScene::updateBlock( float frame )
 {
-    if(blockY - 1 != STAGE_HEIGHT - 1){
-        spriteArray[blockX][blockY]->setVisible(false);
+    if(restartBlockFlag == true){
+        restartBlockFlag = false;
+        movingBlockX = startBlockX;
+        movingBlockY = startBlockY;
+    }else{
+        moveTetris(0, -1);
     }
-    spriteArray[blockX][blockY - 1]->setVisible(true);
-    blockY -= 1;
-    log("%d", blockY);
-}
-
-void GameScene::setTimer(){
-//    schedule(schedule_selector(GameScene::newBlock), 3.0f);
-}
-
-void GameScene::newBlock(){
     
+}
+
+void GameScene::moveTetris(int x, int y){
+    for (int i = 0; i < STAGE_WIDTH; i++) {
+        for (int j = 0; j < STAGE_HEIGHT; j++) {
+            if(completeTetromino[i][j] == 1){
+                spriteArray[i][j]->setVisible(true);
+            }else{
+                spriteArray[i][j]->setVisible(false);
+            }
+        }
+    }
+    movingBlockX += x;
+    movingBlockY += y;
+    
+    if(movingBlockY == 0){
+        saveTetromino();
+    }
+    if(completeTetromino[movingBlockX][movingBlockY - 1] == 1){
+        saveTetromino();
+    }
+    
+    if(restartBlockFlag == false){
+        spriteArray[movingBlockX][movingBlockY]->setVisible(true);
+    }
+    log("%d", movingBlockY);
+}
+
+void GameScene::saveTetromino(){
+    restartBlockFlag = true;
+    spriteArray[movingBlockX][movingBlockY]->setVisible(true);
+    completeTetromino[movingBlockX][movingBlockY] = 1;
+}
+
+void GameScene::onTouchLeftMove(Ref* sender, Control::EventType controlEvent){
+    moveTetris(-1, 0);
 }
