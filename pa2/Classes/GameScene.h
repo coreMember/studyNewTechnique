@@ -18,9 +18,12 @@ private:
     int movingTetromino[STAGE_WIDTH][STAGE_HEIGHT];
     int completeTetromino[STAGE_WIDTH][STAGE_HEIGHT];
     int startBlockX = 3;
-    int startBlockY = 12;
+    int startBlockY = 11;
     int movingBlockX;
     int movingBlockY;
+    int serryTetrominoX;
+    int serryTetrominoY;
+    int emptyTetrominoCount = STAGE_WIDTH;
     bool restartBlockFlag;
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -33,6 +36,9 @@ public:
     void updateBlock(float frame);
     void moveTetris(int x, int y);
     void saveTetromino();
+    void checkSerryTetromino();
+    void serryTetromino(float frame);
+    void reflashField();
     
     //タップ
     void onTouchLeftMove(cocos2d::Ref* sender, cocos2d::extension::Control::EventType controlEvent);

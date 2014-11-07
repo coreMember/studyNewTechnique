@@ -25,6 +25,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		4E2011581A0CFECA00C1732D /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2011551A0CFECA00C1732D /* downArrow.png */; };
+		4E2011591A0CFECA00C1732D /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2011561A0CFECA00C1732D /* leftArrow.png */; };
+		4E20115A1A0CFECA00C1732D /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2011571A0CFECA00C1732D /* rightArrow.png */; };
 		4E2C00871A0A572800677097 /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E2C00851A0A572800677097 /* Marker Felt.ttf */; };
 		4E2C00881A0A572800677097 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2C00861A0A572800677097 /* Icon-40.png */; };
 		4E2C008A1A0A5D1D00677097 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2C00891A0A5D1D00677097 /* Icon-58.png */; };
@@ -232,6 +235,9 @@
 		1D6058910D05DD3D006BFB54 /* TerisGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TerisGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E2011551A0CFECA00C1732D /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		4E2011561A0CFECA00C1732D /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
+		4E2011571A0CFECA00C1732D /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
 		4E2C00851A0A572800677097 /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		4E2C00861A0A572800677097 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		4E2C00891A0A5D1D00677097 /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = "<group>"; };
@@ -474,6 +480,9 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E2011551A0CFECA00C1732D /* downArrow.png */,
+				4E2011561A0CFECA00C1732D /* leftArrow.png */,
+				4E2011571A0CFECA00C1732D /* rightArrow.png */,
 				4E2C00891A0A5D1D00677097 /* Icon-58.png */,
 				4E2C00841A0A572800677097 /* fonts */,
 				4E2C00861A0A572800677097 /* Icon-40.png */,
@@ -658,12 +667,15 @@
 				4E2C00881A0A572800677097 /* Icon-40.png in Resources */,
 				4E2C008A1A0A5D1D00677097 /* Icon-58.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				4E2011581A0CFECA00C1732D /* downArrow.png in Resources */,
 				4E2C00871A0A572800677097 /* Marker Felt.ttf in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				4E2011591A0CFECA00C1732D /* leftArrow.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
+				4E20115A1A0CFECA00C1732D /* rightArrow.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,

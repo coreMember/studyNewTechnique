@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4ABA9C0C-2318-45A4-A13A-6F5CD3E05976</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TerisGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D2761FB4E713C277FD6016164453B6F1CBBB8C82</key>
+		<string>https://github.com/coreMember/studyNewTechnique.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>pa2/proj.ios_mac/TerisGame.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D2761FB4E713C277FD6016164453B6F1CBBB8C82</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/coreMember/studyNewTechnique.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D2761FB4E713C277FD6016164453B6F1CBBB8C82</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D2761FB4E713C277FD6016164453B6F1CBBB8C82</string>
+			<key>IDESourceControlWCCName</key>
+			<string>studyNewTechnique</string>
+		</dict>
+	</array>
+</dict>
+</plist>
