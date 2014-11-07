@@ -66,7 +66,8 @@ bool GameLayer::init(int level)
     initLevelLayer(); //レベル表示レイヤーの表示
     
     this->schedule(schedule_selector(GameLayer::attackFromEnemy), 5.0f);
-    
+    this->schedule(schedule_selector(GameLayer::shootCheck), 0.1f);
+
     return true;
 }
 
@@ -111,9 +112,10 @@ void GameLayer::onTouchMoved(Touch* touch, Event* unused_event)
     _cursor->setVisible(true);
     
     //スワイプとともにボールを移動する
-    _movingCore->setPosition(_movingCore->getPosition() + Point(touch->getDelta().x, 0));
+    //_movingCore->setPosition(_movingCore->getPosition() + Point(touch->getDelta().x, 0));
     
-    float angle = (_movingCore->getPositionX() - getPosFromTag(0)) / (getPosFromTag(4) - getPosFromTag(0)) * 180 - 90;
+    int tag = _movingCore->getTag();
+    float angle = (touch->getLocation().x - getPosFromTag(tag - 2)) / (getPosFromTag(tag + 2) - getPosFromTag(tag - 2)) * 180 - 90;
     _cursor->setRotation(angle);
 }
 
@@ -122,9 +124,8 @@ void GameLayer::onTouchEnded(Touch* touch, Event* unused_event)
     if(_movingCore->_timerPhase == CoreSprite::Dead)
         return;
     
-    coreAnimation(_movingCore, CoreSprite::TimerPhase::Cooling, 10.0f);
-    
-    float angle = (_movingCore->getPositionX() - getPosFromTag(0)) / (getPosFromTag(4) - getPosFromTag(0)) * 180 - 90;
+    int tag = _movingCore->getTag();
+    float angle = (touch->getLocation().x - getPosFromTag(tag - 2)) / (getPosFromTag(tag + 2) - getPosFromTag(tag - 2)) * 180 - 90;
     float speed = 20;
     
     vx = sin(angle * M_PI / 180) * speed;
@@ -132,15 +133,16 @@ void GameLayer::onTouchEnded(Touch* touch, Event* unused_event)
 
     auto bullet = (BulletSprite *) Sprite::create("darkstar.png");
     bullet->setPosition(Point(getPosFromTag(_movingCore->getTag()), 40));
-    
-    addChild(bullet, ZOrder::Core);
     bullet->bulletVx = vx;
     bullet->bulletVy = vy;
     bullet->scheShoot();
-    _movingCore->setPositionX(getPosFromTag(_movingCore->getTag()));
-    this->schedule(schedule_selector(GameLayer::shootCheck), 0.1f);
-    
+    addChild(bullet, ZOrder::Core);
     _bullets.pushBack(bullet);
+    
+    
+    coreAnimation(_movingCore, CoreSprite::TimerPhase::Cooling, 10.0f);
+    
+    _movingCore->setPositionX(getPosFromTag(_movingCore->getTag()));
 }
 
 void GameLayer::onTouchCancelled(Touch* touch, Event* unused_event)
@@ -464,7 +466,7 @@ void GameLayer::attackFromEnemy(float f)
     
     //メンバーにダメージを与える
     float preHpPercentage = memberData->getHpPercentage();
-    int afterHp = memberData->getHp() - 50;
+    int afterHp = memberData->getHp() - 80;
     if (afterHp > memberData->getMaxHp()) afterHp = memberData->getMaxHp();
     memberData->setHp(afterHp);
     
@@ -476,8 +478,8 @@ void GameLayer::attackFromEnemy(float f)
     member->runAction(vibratingAnimation(afterHp));
     
     //敵の攻撃アニメーション
-    auto seq = Sequence::create(MoveBy::create(0.1, Point(0, -10)),
-                                MoveBy::create(0.1, Point(0, 10)), nullptr);
+    auto seq = Sequence::create(MoveBy::create(0.1, Point(0, -50)),
+                                MoveBy::create(0.3, Point(0, 50)), nullptr);
     _enemy->runAction(seq);
     
     //キャラクター死亡チェック
