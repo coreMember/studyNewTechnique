@@ -28,7 +28,6 @@ bool GameScene::init(){
     showButton();
     makeBlock();
     schedule(schedule_selector(GameScene::updateBlock), 0.5f);
-    
     return true;
 }
 /////////////////////////////////////////

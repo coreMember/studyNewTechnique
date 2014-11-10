@@ -64,6 +64,15 @@ void CharaSelectScene::showChara() {
     menu->setPosition(Point::ZERO);
     
     addChild(menu);
+    
+    // ハイスコア
+    auto userDefault = UserDefault::getInstance();
+    CCLOG("値 = %d", userDefault->getIntegerForKey("score"));
+    auto highScore = Label::createWithSystemFont("現在のハイスコア："+to_string(userDefault->getIntegerForKey("score")), "HiraKakuProN-W6", 26);
+    highScore->setPosition(Point(WIN_SIZE.width/2, 900));
+    highScore->setColor(Color3B::WHITE);
+    highScore->enableShadow(Color4B::BLACK,Size(-2,-4),2);
+    addChild(highScore);
 }
 
 // バランスキャラタップ時の処理

@@ -215,10 +215,12 @@ bool BattleScene::onTouchBegan(cocos2d::Touch* touch,cocos2d::Event* event) {
             _valueFigureEightPointText->runAction(moveAnimation->clone());
             _valuePendulumText->runAction(moveAnimation->clone());
             
-            // スコアを保存
+            // ハイスコアを保存
             auto userDefault = UserDefault::getInstance();
-            userDefault->setIntegerForKey("score", sum);
-            userDefault->flush();
+            if(sum > userDefault->getIntegerForKey("score")) {
+                userDefault->setIntegerForKey("score", sum);
+                userDefault->flush();
+            }
             
             // 瓦非表示
             _selfChara->setTileVisible(false);
@@ -273,11 +275,62 @@ void BattleScene::callBackAnimation() {
     _selfChara->changeCharaMotion(TYPE_NORMAL);
     
     // 敵の攻撃
-    srand(time(0));
-    for(int i = 0; i < 30; i++) {
-        CCLOG("乱数 = %d",100+(int)rand()%50);
-    }
     _enemyChara->changeCharaMotion(TYPE_ATTACK);
+    SimpleAudioEngine::getInstance()->playEffect(SE_PUNCH);
+
+    srand(time(0));
+    int enemyDamage = 200+(int)rand()%50;
+    
+    _valueEnemyDamageText = Label::createWithSystemFont(to_string(enemyDamage), "HiraKakuProN-W6", 95);
+    _valueEnemyDamageText->setPosition(Point(_enemyChara->getPositionX(), 800));
+    _valueEnemyDamageText->setColor(Color3B::RED);
+    _valueEnemyDamageText->enableShadow(Color4B::BLACK,Size(-2,-4),2);
+    _valueEnemyDamageText->setVisible(true);
+    addChild(_valueEnemyDamageText);
+    
+    // 勝利判定
+    int selfDamageSum = _valueMeterBar + _valueFigureEightPoint + _valuePendulum;
+    
+    
+    // 勝利
+    if(selfDamageSum > enemyDamage) {
+        this->schedule(schedule_selector(BattleScene::winAnimation));
+    }
+    // 敗北
+    else {
+        this->schedule(schedule_selector(BattleScene::loseAnimation));
+    }
+    auto action = MoveTo::create(0.5, _valueSumText->getPosition());
+    _valueEnemyDamageText->runAction(action);
+}
+
+// 勝利演出
+void BattleScene::winAnimation(float time) {
+    if(_valueSumText->getBoundingBox().containsPoint(_valueEnemyDamageText->getPosition())) {
+        auto rotateAction = RotateTo::create(0.1, -45);
+        auto moveAction = MoveTo::create(0.5, Point(+1000, 1200));
+        auto scaleAction = ScaleTo::create(2, 0.5);
+        auto sequence = Sequence::create(rotateAction, moveAction, scaleAction, NULL);
+        _valueEnemyDamageText->runAction(sequence);
+        
+        this->unschedule(schedule_selector(BattleScene::winAnimation));
+        
+        Director::getInstance()->replaceScene(TransitionFade::create(4.0f, CharaSelectScene::scene(), Color3B::BLACK));
+    }
+}
+
+// 敗北演出
+void BattleScene::loseAnimation(float time) {
+    if(_valueSumText->getBoundingBox().containsPoint(_valueEnemyDamageText->getPosition())) {
+        auto rotateAction = RotateTo::create(0.1, -45);
+        auto moveAction = MoveTo::create(0.5, Point(-200, 1200));
+        auto scaleAction = ScaleTo::create(2, 0.5);
+        auto sequence = Sequence::create(rotateAction, moveAction, scaleAction, NULL);
+        _valueSumText->runAction(sequence);
+        this->unschedule(schedule_selector(BattleScene::loseAnimation));
+
+        Director::getInstance()->replaceScene(TransitionFade::create(4.0f, CharaSelectScene::scene(), Color3B::BLACK));
+    }
 }
 
 // デストラクタ
