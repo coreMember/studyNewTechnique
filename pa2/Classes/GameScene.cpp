@@ -35,8 +35,9 @@ bool GameScene::init(){
 /////////////////////////////////////////
 void GameScene::showButton(){
     auto leftButton = ControlButton::create(Scale9Sprite::create("leftArrow.png"));
-    leftButton->setAdjustBackgroundImage(false);
+//    leftButton->setAdjustBackgroundImage(false);
     leftButton->setPosition(500, 300);
+    leftButton->setContentSize(Size(100, 100));
     leftButton->addTargetWithActionForControlEvents(this, cccontrol_selector(GameScene::onTouchLeftMove), Control::EventType::TOUCH_UP_INSIDE);
     addChild(leftButton);
     

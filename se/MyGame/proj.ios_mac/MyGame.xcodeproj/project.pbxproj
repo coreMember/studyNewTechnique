@@ -423,6 +423,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4E06FBD71A0DEE1E00F18A01 /* New Group */,
 				39E4E5C519EA82300074DEF8 /* AppDelegate.cpp */,
 				39E4E5C619EA82300074DEF8 /* AppDelegate.h */,
 				39E4E5C919EA82300074DEF8 /* Character.cpp */,
@@ -500,6 +501,13 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E06FBD71A0DEE1E00F18A01 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
