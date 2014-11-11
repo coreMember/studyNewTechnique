@@ -20,6 +20,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		39735CAD1A110B8B00A24A57 /* liblwf iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39735CAA1A110AF600A24A57 /* liblwf iOS.a */; };
 		3973F7501A013B5B0008A08A /* BulletSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3973F74E1A013B5B0008A08A /* BulletSprite.cpp */; };
 		3984811919FBD07300B32723 /* darkstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3984811819FBD07300B32723 /* darkstar.png */; };
 		39E4CA9919EA73D10074DEF8 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E4CA6F19EA73D10074DEF8 /* 0.png */; };
@@ -251,6 +252,27 @@
 			remoteGlobalIDString = A07A4F9F178387730073F6A7;
 			remoteInfo = "CocosDenshion iOS";
 		};
+		39735CA71A110AF600A24A57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39735CA21A110AF600A24A57 /* lwf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8190970D18E2264A003E0BB0;
+			remoteInfo = "lwf Mac";
+		};
+		39735CA91A110AF600A24A57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39735CA21A110AF600A24A57 /* lwf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 819096E018E2259A003E0BB0;
+			remoteInfo = "lwf iOS";
+		};
+		39735CAB1A110B7A00A24A57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39735CA21A110AF600A24A57 /* lwf.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 819096DF18E2259A003E0BB0;
+			remoteInfo = "lwf iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -260,6 +282,7 @@
 		1D6058910D05DD3D006BFB54 /* MyGame iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyGame iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		39735CA21A110AF600A24A57 /* lwf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lwf.xcodeproj; path = ../lwf/project.ios_mac/lwf.xcodeproj; sourceTree = "<group>"; };
 		3973F74E1A013B5B0008A08A /* BulletSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletSprite.cpp; path = ../Classes/BulletSprite.cpp; sourceTree = "<group>"; };
 		3973F74F1A013B5B0008A08A /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletSprite.h; path = ../Classes/BulletSprite.h; sourceTree = "<group>"; };
 		3984811819FBD07300B32723 /* darkstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkstar.png; sourceTree = "<group>"; };
@@ -361,6 +384,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39735CAD1A110B8B00A24A57 /* liblwf iOS.a in Frameworks */,
 				1AC6FB2E180E99EB004C840B /* libbox2d iOS.a in Frameworks */,
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
@@ -470,6 +494,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				39735CA21A110AF600A24A57 /* lwf.xcodeproj */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -503,11 +528,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		4E06FBD71A0DEE1E00F18A01 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "New Group";
+=======
+		39735CA31A110AF600A24A57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39735CA81A110AF600A24A57 /* liblwf Mac.a */,
+				39735CAA1A110AF600A24A57 /* liblwf iOS.a */,
+			);
+			name = Products;
+>>>>>>> 18971a47ce914fe1c962b2b969df9303b391f049
 			sourceTree = "<group>";
 		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
@@ -620,6 +655,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				39735CAC1A110B7A00A24A57 /* PBXTargetDependency */,
 				1AC6FB25180E99E1004C840B /* PBXTargetDependency */,
 				1AC6FB27180E99E1004C840B /* PBXTargetDependency */,
 				1AC6FB29180E99E1004C840B /* PBXTargetDependency */,
@@ -682,6 +718,10 @@
 				{
 					ProductGroup = 1AC6FAE6180E9839004C840B /* Products */;
 					ProjectRef = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+				},
+				{
+					ProductGroup = 39735CA31A110AF600A24A57 /* Products */;
+					ProjectRef = 39735CA21A110AF600A24A57 /* lwf.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -761,6 +801,20 @@
 			fileType = archive.ar;
 			path = "libCocosDenshion iOS.a";
 			remoteRef = 1AC6FB0E180E9839004C840B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		39735CA81A110AF600A24A57 /* liblwf Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liblwf Mac.a";
+			remoteRef = 39735CA71A110AF600A24A57 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		39735CAA1A110AF600A24A57 /* liblwf iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liblwf iOS.a";
+			remoteRef = 39735CA91A110AF600A24A57 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -920,6 +974,11 @@
 			name = "CocosDenshion iOS";
 			targetProxy = 1AC6FB2C180E99E1004C840B /* PBXContainerItemProxy */;
 		};
+		39735CAC1A110B7A00A24A57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "lwf iOS";
+			targetProxy = 39735CAB1A110B7A00A24A57 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1064,6 +1123,8 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					"$(SRCROOT)/../lwf/cplusplus/cocos2dx",
+					"$(SRCROOT)/../lwf/cplusplus/core",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1093,6 +1154,8 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					"$(SRCROOT)/../lwf/cplusplus/cocos2dx",
+					"$(SRCROOT)/../lwf/cplusplus/core",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
