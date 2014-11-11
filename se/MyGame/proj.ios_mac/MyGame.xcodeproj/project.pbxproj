@@ -528,21 +528,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4E06FBD71A0DEE1E00F18A01 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "New Group";
-=======
-		39735CA31A110AF600A24A57 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				39735CA81A110AF600A24A57 /* liblwf Mac.a */,
-				39735CAA1A110AF600A24A57 /* liblwf iOS.a */,
-			);
-			name = Products;
->>>>>>> 18971a47ce914fe1c962b2b969df9303b391f049
+
+
 			sourceTree = "<group>";
 		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
