@@ -1,4 +1,5 @@
 #include "GameLayer.h"
+#include "lwf_cocos2dx.h"
 
 #define BALL_NUM_X 6
 #define BALL_NUM_Y 4
@@ -158,9 +159,13 @@ void GameLayer::shootCheck(float f)
         if(bullet->getBoundingBox().intersectsRect(_enemy->getBoundingBox()))
         {
             if(bullet->getBoundingBox().intersectsRect(_enemyData->core->getBoundingBox()))
+            {
                 attacktoEnemy(1000);
+            }
             else
+            {
                 attacktoEnemy(100);
+            }
         }
         
         // out of range
@@ -273,6 +278,36 @@ void GameLayer::initEnemy()
     auto action_3 = MoveBy::create(1.0f, Point(-300, 0));
     auto seq2 = Sequence::create(action_2, action_3, NULL);
     core->timer->runAction(RepeatForever::create(seq2));
+    
+    
+    // add a lwf
+    //const char *path = "sample3_max_optimized/sample3_max_optimized.lwf";
+    //const char *path = "mask/mask.lwf";
+    //const char *path = "000051.lwf";
+    const char *path = "lwf_500099/500099.lwf";
+    auto lwfNode = LWFNode::create(path);
+    lwfNode->lwf->AddEventHandler("done", [=](LWF::Movie *, LWF::Button *){
+        lwfNode->lwf->GotoAndPlayMovie("_root", 1);
+    });
+    //lwfNode->setPosition(origin);
+    lwfNode->setPosition(Point(WINSIZE.width/2, WINSIZE.height/2));
+    //lwfNode->lwf->FitForHeight(visibleSize.width, visibleSize.height);
+    this->addChild(lwfNode);
+    
+    
+    const char *path2 = "lwf_000051/000051.lwf";
+    auto lwfNode2 = LWFNode::create(path2);
+    lwfNode2->lwf->AddEventHandler("done", [=](LWF::Movie *, LWF::Button *){
+        lwfNode2->lwf->GotoAndPlayMovie("_root", 1);
+    });
+    lwfNode2->setPosition(Point(WINSIZE.width/2, WINSIZE.height/2));
+    this->addChild(lwfNode2);
+    
+    auto act1 = MoveBy::create(5.0f, Point(0, 300));
+    auto act2 = MoveBy::create(5.0f, Point(0, -300));
+    auto act3 = Sequence::create(act1, act2, NULL);
+    lwfNode2->runAction(RepeatForever::create(act3));
+    
 }
 
 void GameLayer::initMembers()
