@@ -1,2 +1,0 @@
-- cat.jpeg
--- http://commons.wikimedia.org/wiki/File:Stray_cat_can%27t_get_out_of_the_rain...jpg
