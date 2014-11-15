@@ -14,12 +14,16 @@
 #include <cocos2d.h>
 #include <stdio.h>
 #include <spine/Json.h>
-class ServerConnect : public cocos2d::Node{
+//class ServerConnect : public cocos2d::Node{
+class ServerConnect{
     public:
+    std::string objectId;
     ServerConnect();
     virtual ~ServerConnect();
-    void requestData();
-    void callbackFunc(cocos2d::network::HttpClient* client, cocos2d::network::HttpResponse* response);
+    void postData();
+    void getData();
+    void postCallBackMethod(cocos2d::network::HttpClient* client, cocos2d::network::HttpResponse* response);
+    void getCallBackMethod(cocos2d::network::HttpClient* client, cocos2d::network::HttpResponse* response);
 };
 
 #endif /* defined(__SandBox__ServerConnectBase__) */

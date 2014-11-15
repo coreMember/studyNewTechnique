@@ -79,7 +79,7 @@ bool HelloWorld::init()
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     auto server = new ServerConnect();
-    server->requestData();
+    server->postData();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
 	//MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
     return;

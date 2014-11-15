@@ -26,6 +26,12 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		4E07A2F11A12430D00EEBCEE /* ServerConnectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E07A2EF1A12430D00EEBCEE /* ServerConnectBase.cpp */; };
+		4E8A050A1A16EFA800535673 /* MenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A05081A16EFA800535673 /* MenuLayer.cpp */; };
+		4E8A050F1A16FA0400535673 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A050D1A16FA0400535673 /* GameScene.cpp */; };
+		4E8A051D1A170FC100535673 /* Background_skyWars.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A051C1A170FC100535673 /* Background_skyWars.png */; };
+		4E8A051F1A174CB200535673 /* CharacterImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A051E1A174CB200535673 /* CharacterImage1.png */; };
+		4E8A05221A174D6900535673 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A05201A174D6900535673 /* Character.cpp */; };
+		4E8A05241A17AD4900535673 /* CharacterImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A05231A17AD4900535673 /* CharacterImage2.png */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -231,6 +237,15 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4E07A2EF1A12430D00EEBCEE /* ServerConnectBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ServerConnectBase.cpp; path = ../Classes/ServerConnectBase.cpp; sourceTree = "<group>"; };
 		4E07A2F01A12430D00EEBCEE /* ServerConnectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerConnectBase.h; path = ../Classes/ServerConnectBase.h; sourceTree = "<group>"; };
+		4E8A05081A16EFA800535673 /* MenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuLayer.cpp; path = ../Classes/MenuLayer.cpp; sourceTree = "<group>"; };
+		4E8A05091A16EFA800535673 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuLayer.h; path = ../Classes/MenuLayer.h; sourceTree = "<group>"; };
+		4E8A050D1A16FA0400535673 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
+		4E8A050E1A16FA0400535673 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
+		4E8A051C1A170FC100535673 /* Background_skyWars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_skyWars.png; sourceTree = "<group>"; };
+		4E8A051E1A174CB200535673 /* CharacterImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterImage1.png; sourceTree = "<group>"; };
+		4E8A05201A174D6900535673 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = ../Classes/Character.cpp; sourceTree = "<group>"; };
+		4E8A05211A174D6900535673 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = ../Classes/Character.h; sourceTree = "<group>"; };
+		4E8A05231A17AD4900535673 /* CharacterImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterImage2.png; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -345,6 +360,12 @@
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				4E07A2EF1A12430D00EEBCEE /* ServerConnectBase.cpp */,
 				4E07A2F01A12430D00EEBCEE /* ServerConnectBase.h */,
+				4E8A05081A16EFA800535673 /* MenuLayer.cpp */,
+				4E8A05091A16EFA800535673 /* MenuLayer.h */,
+				4E8A050D1A16FA0400535673 /* GameScene.cpp */,
+				4E8A050E1A16FA0400535673 /* GameScene.h */,
+				4E8A05201A174D6900535673 /* Character.cpp */,
+				4E8A05211A174D6900535673 /* Character.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -460,6 +481,9 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E8A05231A17AD4900535673 /* CharacterImage2.png */,
+				4E8A051E1A174CB200535673 /* CharacterImage1.png */,
+				4E8A051C1A170FC100535673 /* Background_skyWars.png */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
@@ -521,7 +545,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = MDDB52YB8L;
@@ -632,6 +656,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8A051D1A170FC100535673 /* Background_skyWars.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -641,7 +666,9 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				4E8A05241A17AD4900535673 /* CharacterImage2.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				4E8A051F1A174CB200535673 /* CharacterImage1.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -672,11 +699,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8A050A1A16EFA800535673 /* MenuLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				4E8A05221A174D6900535673 /* Character.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				4E07A2F11A12430D00EEBCEE /* ServerConnectBase.cpp in Sources */,
+				4E8A050F1A16FA0400535673 /* GameScene.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,9 +841,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -840,9 +870,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;
