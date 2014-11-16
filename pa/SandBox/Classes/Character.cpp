@@ -9,7 +9,11 @@
 #include "Character.h"
 USING_NS_CC;
 
+//Character::Character(){
+//    log("Character");
+//}
 Character::~Character(){
+    log("~Character");
 }
 
 Character* Character::createCharacter() {
@@ -28,6 +32,7 @@ Character* Character::createCharacter() {
 
 bool Character::init(){
     loadCharacterImage();
+    
     return true;
 }
 

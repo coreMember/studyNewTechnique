@@ -12,15 +12,17 @@
 #include <stdio.h>
 #include <cocos2d.h>
 
-class Character:public cocos2d::Sprite{
+class Character:public cocos2d::Node{
 private:
-    Sprite* m_character;
+    
     void loadCharacterImage();
     
 public:
     virtual bool init();
     static Character* createCharacter();
+    cocos2d::Sprite* m_character;
     ~Character();
+//    Character();
 };
 
 #endif /* defined(__SandBox__Character__) */

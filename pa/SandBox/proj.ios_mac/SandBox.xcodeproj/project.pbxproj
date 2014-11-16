@@ -32,6 +32,8 @@
 		4E8A051F1A174CB200535673 /* CharacterImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A051E1A174CB200535673 /* CharacterImage1.png */; };
 		4E8A05221A174D6900535673 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A05201A174D6900535673 /* Character.cpp */; };
 		4E8A05241A17AD4900535673 /* CharacterImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A05231A17AD4900535673 /* CharacterImage2.png */; };
+		4E8A052A1A18778B00535673 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A05281A18778B00535673 /* Bullet.cpp */; };
+		4E8A052C1A18840800535673 /* BulletImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A052B1A18840800535673 /* BulletImage1.png */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -246,6 +248,9 @@
 		4E8A05201A174D6900535673 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = ../Classes/Character.cpp; sourceTree = "<group>"; };
 		4E8A05211A174D6900535673 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = ../Classes/Character.h; sourceTree = "<group>"; };
 		4E8A05231A17AD4900535673 /* CharacterImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterImage2.png; sourceTree = "<group>"; };
+		4E8A05281A18778B00535673 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bullet.cpp; path = ../Classes/Bullet.cpp; sourceTree = "<group>"; };
+		4E8A05291A18778B00535673 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = ../Classes/Bullet.h; sourceTree = "<group>"; };
+		4E8A052B1A18840800535673 /* BulletImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BulletImage1.png; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -366,6 +371,8 @@
 				4E8A050E1A16FA0400535673 /* GameScene.h */,
 				4E8A05201A174D6900535673 /* Character.cpp */,
 				4E8A05211A174D6900535673 /* Character.h */,
+				4E8A05281A18778B00535673 /* Bullet.cpp */,
+				4E8A05291A18778B00535673 /* Bullet.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -481,6 +488,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E8A052B1A18840800535673 /* BulletImage1.png */,
 				4E8A05231A17AD4900535673 /* CharacterImage2.png */,
 				4E8A051E1A174CB200535673 /* CharacterImage1.png */,
 				4E8A051C1A170FC100535673 /* Background_skyWars.png */,
@@ -670,6 +678,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				4E8A051F1A174CB200535673 /* CharacterImage1.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				4E8A052C1A18840800535673 /* BulletImage1.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
@@ -704,6 +713,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				4E8A05221A174D6900535673 /* Character.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				4E8A052A1A18778B00535673 /* Bullet.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				4E07A2F11A12430D00EEBCEE /* ServerConnectBase.cpp in Sources */,
 				4E8A050F1A16FA0400535673 /* GameScene.cpp in Sources */,
